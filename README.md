@@ -32,7 +32,9 @@ TBD
 
 ## Built With
 
-- [Next.js](https://nextjs.org/) - The web framework used
+- [Next.js](https://nextjs.org/) - The web framework used in the project
+- [Typescript](https://www.typescriptlang.org/) - The language used in the project
+- [Scss](https://sass-lang.com/) - Stylesheet language used in the project
 
 ## Versioning
 
