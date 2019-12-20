@@ -22,6 +22,7 @@ module.exports = {
       jsx: true, // Allows for the parsing of JSX
     },
   },
+  ignorePatterns: ['/node_modules/*', '**/node_modules/*'],
   rules: {
     eqeqeq: 'warn',
     'no-mixed-spaces-and-tabs': 'warn',
