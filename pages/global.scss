@@ -1,0 +1,36 @@
+html,
+body {
+  background-color: red;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {
+  &.reset {
+    margin-bottom: 0;
+  }
+}
+
+.btn.reset {
+  padding: 0.3rem 0.5rem;
+  display: inline-block;
+  text-align: center;
+  vertical-align: middle;
+  background-color: transparent;
+  border: none;
+  border-radius: 0.25rem;
+}
+
+ol,
+ul {
+  &.reset {
+    margin: 0;
+    padding: 0;
+    text-indent: 0;
+    list-style-type: none;
+  }
+}
