@@ -1,0 +1,15 @@
+@import '../theme.scss';
+
+.terms {
+  @include var(background-color, background-color);
+  display: flex;
+  justify-content: center;
+
+  &__container {
+    @include var(width, max-width);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding: 0 32px;
+  }
+}

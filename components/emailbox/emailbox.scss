@@ -1,0 +1,100 @@
+@import '../theme';
+
+.emailbox {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  @include var(background-color, accent-color);
+
+  &__container {
+    @include var(width, max-width);
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: 3rem 1rem 3rem 3rem;
+    grid-template-areas:
+      'title'
+      'message'
+      'input'
+      'submit';
+    justify-items: center;
+    align-items: center;
+  }
+
+  &__title {
+    grid-area: title;
+    font-weight: 700;
+  }
+
+  &__invalid {
+    grid-area: message;
+    display: none;
+    color: #ffff00;
+
+    &--show {
+      display: block;
+    }
+  }
+
+  &__successful {
+    grid-area: message;
+    display: none;
+
+    &--show {
+      display: block;
+    }
+  }
+
+  &__icon {
+    display: none;
+    @supports (clip-path: circle(100%)) {
+      grid-area: input;
+      width: 3rem;
+      height: 3rem;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      font-size: 1.5em;
+      border-radius: 50%;
+      @include var(background-color, accent-color);
+      box-shadow: -2px -2px 4px rgba(#fff, 0.3), 2px 2px 4px rgba(#000, 0.3);
+      z-index: 2;
+      cursor: pointer;
+
+      &.expand {
+        display: none;
+      }
+    }
+  }
+
+  &__input {
+    grid-area: input;
+    width: 90%;
+    padding: 8px;
+    border: none;
+    border-radius: 16px;
+    clip-path: circle(1rem);
+    transition: clip-path 500ms ease-in;
+    z-index: 1;
+
+    &.expand {
+      clip-path: circle(100% at 50% 50%);
+    }
+  }
+
+  &__submit {
+    grid-area: submit;
+    text-transform: uppercase;
+    font-weight: 700;
+    @include var(background-color, background-color);
+    @supports (clip-path: circle(100%)) {
+      display: none;
+      opacity: 0;
+      transition: opacity 250ms ease-in;
+
+      &.expand {
+        display: block;
+        opacity: 1;
+      }
+    }
+  }
+}

@@ -1,0 +1,108 @@
+@import '../theme';
+$local-var: (
+  plan-title-height: 3rem,
+  plan-title-color: #171774,
+  plan-color: #dadada,
+  plan-border-radius: 16px,
+);
+
+@mixin local-var($property, $variable) {
+  @include base-var($property, $variable, $local-var);
+}
+
+.pricing {
+  @include css-var($local-var);
+  display: flex;
+  justify-content: center;
+  @include var(background-color, background-color);
+
+  &__container {
+    width: 100%;
+    @include var(max-width, max-width);
+    display: grid;
+    grid-template-columns: 1fr;
+  }
+
+  &__title {
+    grid-row: 1;
+  }
+
+  .plan {
+    &__container {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      margin: 16px;
+      @include local-var(border-radius, plan-border-radius);
+      background: linear-gradient(to bottom, #171774, #171774 3rem, white 3rem, white);
+      background: linear-gradient(
+        to bottom,
+        var(--plan-title-color),
+        var(--plan-title-color) var(--plan-title-height),
+        white var(--plan-title-height),
+        white
+      );
+      box-shadow: 0 0 8px rgba(#000, 0.3);
+    }
+
+    &__title {
+      margin: 0;
+      font-size: 1.5em;
+      @include local-var(line-height, plan-title-height);
+      text-align: center;
+      @include local-var(color, plan-color);
+    }
+
+    &__price {
+      padding: 1rem 0;
+      text-align: center;
+    }
+
+    &__body {
+      min-height: 200px;
+      padding: 1rem 2rem;
+      line-height: 2em;
+    }
+
+    &__buy {
+      align-self: center;
+      margin-bottom: 1rem;
+      padding: 0.75rem 2rem;
+      text-transform: uppercase;
+      font-weight: 700;
+      background-color: #00f821;
+      border-radius: 2rem;
+    }
+  }
+
+  .plan.best {
+    --plan-title-color: #fbff1d;
+    --plan-color: #333333;
+  }
+}
+
+@include big-screen {
+  .pricing {
+    &__container {
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+    }
+
+    &__title {
+      grid-row: 1;
+      grid-column: 1 / 4;
+    }
+
+    .plan {
+      grid-row: 2;
+    }
+  }
+}
+
+@include desktop {
+  .pricing {
+    .plan {
+      margin: 16px 32px;
+    }
+  }
+}
