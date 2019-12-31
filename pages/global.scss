@@ -1,36 +1,56 @@
-html,
+@import '../components/theme.scss';
+
+:root {
+  @include css-var($global-var);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
 body {
-  background-color: red;
+  font-family: 'Roboto', sans-serif;
+  font-size: 12px;
+  font-weight: 400;
+  @include var(color, font-color);
+  @include var(background-color, background-color);
 }
 
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p {
-  &.reset {
-    margin-bottom: 0;
-  }
+* {
+  box-sizing: border-box;
 }
 
-.btn.reset {
-  padding: 0.3rem 0.5rem;
+a,
+a:link,
+a:visited,
+a:hover,
+a:active {
+  color: #353535;
+  color: var(--font-color);
+  text-decoration: none;
+}
+
+ol,
+ul {
+  padding: 0;
+  margin: 0;
+  text-indent: 0;
+  list-style-type: none;
+}
+
+.btn {
+  padding: 5px 8px;
   display: inline-block;
   text-align: center;
   vertical-align: middle;
   background-color: transparent;
   border: none;
-  border-radius: 0.25rem;
+  border-radius: 4px;
+  cursor: pointer;
 }
 
-ol,
-ul {
-  &.reset {
-    margin: 0;
-    padding: 0;
-    text-indent: 0;
-    list-style-type: none;
-  }
+#__next {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
 }
