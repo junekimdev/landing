@@ -1,0 +1,67 @@
+$screen-1: 576px;
+$screen-2: 780px;
+
+// Media query
+@mixin big-screen {
+  @media screen and (min-width: #{$screen-1}) {
+    @content;
+  }
+}
+
+@mixin tablet {
+  @media screen and (min-width: #{$screen-1}) and (max-width: #{$screen-2}) {
+    @content;
+  }
+}
+
+@mixin desktop {
+  @media screen and (min-width: #{$screen-2}) {
+    @content;
+  }
+}
+
+// CSS variable fallbacks
+$global-var: (
+  accent-color: #00aabb,
+  max-width: 1200px,
+  navbar-height: 72px,
+  navbar-height-mobile: 48px,
+  brand-font-size: 1.5rem,
+  brand-image-size: 3rem,
+  font-color: #353535,
+  background-color: #dfdfdf,
+  footer-bg-color: #666666,
+  footer-font-color: #9b9b9b,
+  blog-image-height: 180px,
+  blog-post-width: 800px,
+  blog-title-font-size: 2.5em,
+  blog-time-color: #757575,
+);
+
+@mixin base-var($property, $variable, $mapper) {
+  #{$property}: map-get($mapper, $variable);
+  #{$property}: var(--#{$variable});
+}
+
+@mixin var($property, $variable) {
+  @include base-var($property, $variable, $global-var);
+}
+
+@mixin css-var($mapper) {
+  @each $property, $value in $mapper {
+    --#{$property}: #{$value};
+  }
+}
+
+.page-title {
+  text-align: center;
+  text-decoration: underline;
+  letter-spacing: 2px;
+
+  @include tablet {
+    margin: 3rem 0;
+  }
+  @include desktop {
+    margin: 5rem 0;
+  }
+}
