@@ -5,7 +5,7 @@ import Header from '../../components/header';
 import Footer from '../../components/footer';
 import Blog from '../../components/blog';
 
-const layout = () => {
+const page = () => {
   const publicUrl = process.env.ROOT_PUBLIC_URL || 'localhost:3000';
   useEffect(() => {
     const header = document.querySelector('header');
@@ -20,7 +20,7 @@ const layout = () => {
         desc="Blog of Landing Page Template"
         url={`${publicUrl}/blog`}
       />
-      <Header />
+      <Header pathname="/blog" />
       <main role="main">
         <Blog />
       </main>
@@ -29,4 +29,4 @@ const layout = () => {
   );
 };
 
-export default layout;
+export default page;

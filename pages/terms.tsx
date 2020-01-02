@@ -5,7 +5,7 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import Terms from '../components/terms';
 
-const layout = () => {
+const page = () => {
   const publicUrl = process.env.PUBLIC_URL || 'localhost:3000';
   useEffect(() => {
     const header = document.querySelector('header');
@@ -18,9 +18,9 @@ const layout = () => {
       <Meta
         title={`Terms | Landing Page Template`}
         desc={`Terms | Landing Page Template`}
-        url={`${publicUrl}/blog/terms`}
+        url={`${publicUrl}/terms`}
       />
-      <Header />
+      <Header pathname="/terms" />
       <main role="main">
         <Terms />
       </main>
@@ -29,4 +29,4 @@ const layout = () => {
   );
 };
 
-export default layout;
+export default page;

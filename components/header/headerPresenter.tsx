@@ -1,16 +1,15 @@
 import { MouseEvent } from 'react';
-import { useRouter } from 'next/router';
 import './header.scss';
 import Item from './headerViewItem';
 import Brand from './headerViewBrand';
 
 const presenter = (props: {
+  pathname: string;
   toggleMenu: () => void;
   onMenuClicked: (event: MouseEvent<HTMLAnchorElement>) => void;
 }) => {
-  const { toggleMenu, onMenuClicked } = props;
-  const router = useRouter();
-  const isRoot = router.pathname === '/';
+  const { pathname, toggleMenu, onMenuClicked } = props;
+  const isRoot = pathname === '/';
   return (
     <header className="header">
       <div className="header__container">

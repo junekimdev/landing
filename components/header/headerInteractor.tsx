@@ -1,7 +1,8 @@
 import { useState, MouseEvent } from 'react';
 import Presenter from './headerPresenter';
 
-const interactor = () => {
+const interactor = (props: { pathname: string }) => {
+  const { pathname } = props;
   const [collapsed, setCollapsed] = useState(true);
   const detectScrolled = (callback: () => void) => {
     let timer: number;
@@ -35,7 +36,7 @@ const interactor = () => {
   const onMenuClicked = (e: MouseEvent<HTMLAnchorElement>) => {
     detectScrolled(() => toggleMenu());
   };
-  return <Presenter toggleMenu={toggleMenu} onMenuClicked={onMenuClicked} />;
+  return <Presenter pathname={pathname} toggleMenu={toggleMenu} onMenuClicked={onMenuClicked} />;
 };
 
 export default interactor;

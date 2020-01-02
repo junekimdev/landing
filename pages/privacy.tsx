@@ -5,7 +5,7 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import Privacy from '../components/privacy';
 
-const layout = () => {
+const page = () => {
   const publicUrl = process.env.PUBLIC_URL || 'localhost:3000';
   useEffect(() => {
     const header = document.querySelector('header');
@@ -18,9 +18,9 @@ const layout = () => {
       <Meta
         title={`Privacy | Landing Page Template`}
         desc={`Privacy | Landing Page Template`}
-        url={`${publicUrl}/blog/privacy`}
+        url={`${publicUrl}/privacy`}
       />
-      <Header />
+      <Header pathname="/privacy" />
       <main role="main">
         <Privacy />
       </main>
@@ -29,4 +29,4 @@ const layout = () => {
   );
 };
 
-export default layout;
+export default page;
