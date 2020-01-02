@@ -11,6 +11,7 @@ import Features from '../components/features';
 import About from '../components/about';
 
 const layout = () => {
+  const publicUrl = process.env.PUBLIC_URL || 'localhost:3000';
   useEffect(() => {
     const header = document.querySelector('header');
     const homeSection = document.querySelector('#home') as HTMLElement;
@@ -30,7 +31,7 @@ const layout = () => {
 
   return (
     <>
-      <Meta title="Landing Page Template" desc="Landing Page Template" url="//localhost:3000" />
+      <Meta title="Landing Page Template" desc="Landing Page Template" url={publicUrl} />
       <Header />
       <main role="main">
         <Home />

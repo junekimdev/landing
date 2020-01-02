@@ -9,6 +9,7 @@ import Post from '../../components/post';
 const layout = () => {
   const router = useRouter();
   const { postId, title } = router.query;
+  const publicUrl = process.env.PUBLIC_URL || 'localhost:3000';
   useEffect(() => {
     const header = document.querySelector('header');
     header?.classList.add('header--opaque');
@@ -20,7 +21,7 @@ const layout = () => {
       <Meta
         title={`${title} | Landing Page Template`}
         desc={`${title} | Landing Page Template`}
-        url={`//localhost:3000/blog/${postId}?title=${title}`}
+        url={`${publicUrl}/blog/${postId}?title=${title}`}
       />
       <Header />
       <main role="main">

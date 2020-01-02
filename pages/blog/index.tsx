@@ -6,6 +6,7 @@ import Footer from '../../components/footer';
 import Blog from '../../components/blog';
 
 const layout = () => {
+  const publicUrl = process.env.ROOT_PUBLIC_URL || 'localhost:3000';
   useEffect(() => {
     const header = document.querySelector('header');
     header?.classList.add('header--opaque');
@@ -17,7 +18,7 @@ const layout = () => {
       <Meta
         title="Blog | Landing Page Template"
         desc="Blog of Landing Page Template"
-        url="//localhost:3000/blog"
+        url={`${publicUrl}/blog`}
       />
       <Header />
       <main role="main">
