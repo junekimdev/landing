@@ -10,7 +10,7 @@ import Pricing from '../components/pricing';
 import Features from '../components/features';
 import About from '../components/about';
 
-const layout = () => {
+const page = () => {
   const publicUrl = process.env.PUBLIC_URL || 'localhost:3000';
   useEffect(() => {
     const header = document.querySelector('header');
@@ -27,12 +27,13 @@ const layout = () => {
       });
     }, observerOption);
     if (homeSection !== null) observer.observe(homeSection);
+    return () => observer.unobserve(homeSection);
   }, []);
 
   return (
     <>
       <Meta title="Landing Page Template" desc="Landing Page Template" url={publicUrl} />
-      <Header />
+      <Header pathname="/" />
       <main role="main">
         <Home />
         <Products />
@@ -47,4 +48,4 @@ const layout = () => {
   );
 };
 
-export default layout;
+export default page;
