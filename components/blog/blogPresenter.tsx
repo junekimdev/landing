@@ -1,4 +1,4 @@
-import { MouseEvent } from 'react';
+import { MouseEvent, Fragment } from 'react';
 import './blog.scss';
 import Item, { IPost } from './blogViewItem';
 
@@ -8,10 +8,10 @@ const presenter = (props: {
 }) => {
   const { posts, onMoreClicked } = props;
   const articleMapper = (post: IPost) => (
-    <>
+    <Fragment key={post.id}>
       <Item post={post} />
       <hr />
-    </>
+    </Fragment>
   );
 
   return (
