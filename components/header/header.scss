@@ -121,6 +121,7 @@
 
     .brand {
       flex: 0 1 auto;
+      align-self: center;
       display: flex;
       align-items: center;
 
@@ -177,6 +178,16 @@
         &::after {
           transform: scaleX(1);
         }
+      }
+    }
+  }
+}
+
+@include tablet {
+  .header {
+    .brand {
+      &__name {
+        display: none;
       }
     }
   }
