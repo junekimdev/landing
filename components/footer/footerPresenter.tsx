@@ -19,11 +19,11 @@ const presenter = () => {
       <div className="footer__container">
         <Brand image="/assets/placeholder_250x250.png" name={companyName} />
         <Social
-          fb_url="//facebook.com"
-          tw_url="//twitter.com"
-          insta_url="//instragram.com"
-          linkedin_url="//linkedin.com"
-          youtube_url="//youtube.com"
+          fb_url="https://facebook.com"
+          tw_url="https://twitter.com"
+          insta_url="https://instragram.com"
+          linkedin_url="https://linkedin.com"
+          youtube_url="https://youtube.com"
         />
         <CS email={companyEmail} address={companyAddress} phone={companyPhone} />
         <Legal name={companyName} terms_url="/terms" privacy_url="/privacy" />
