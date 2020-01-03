@@ -1,6 +1,6 @@
 import Head from 'next/head';
-const orgName = 'permeDev';
-const siteName = 'landing page';
+const orgName = 'JuneKimDev';
+const siteName = 'Landing Page Template';
 const Meta = (props: {
   title: string;
   desc: string;
@@ -29,7 +29,7 @@ const Meta = (props: {
     {props.image ? (
       <meta property="og:image" content={props.image} />
     ) : (
-      <meta property="og:image" content="/assets/placeholder_250x250.png" />
+      <meta property="og:image" content="/assets/LogoPlace_420x160.png" />
     )}
     {props.image && <meta name="twitter:image" content={props.image} />}
 
@@ -41,9 +41,15 @@ const Meta = (props: {
     <meta name="msapplication-TileColor" content="#da532c" />
     <meta name="theme-color" content="#dfdfdf" />
 
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css" />
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
+    />
     <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto&display=swap" />
-    <link rel="stylesheet" href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css" />
+    <link
+      rel="stylesheet"
+      href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+    />
     {props.js && <script src={props.js}></script>}
     {props.children}
   </Head>
