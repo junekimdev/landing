@@ -1,6 +1,7 @@
 # Landing Page Template Client
 
-Langing page is much needed for every business. This project is to show a template for a landing page.
+Langing page is very important thing to have for every business in this digital age.  
+This project provides a client side template for such a landing page.
 
 ## Getting Started
 
@@ -19,7 +20,7 @@ nodejs -v
 
 ### Installing
 
-Clone this and install dependencies
+Clone the repo and install dependencies
 
 ```shell
 git clone https://github.com/JuneKimDev/landing.git
@@ -28,7 +29,20 @@ npm i
 
 ## Deployment
 
-TBD
+1. Build docker image (recommended)
+
+   1. Create a directory as you wish (e.g. `/landing`)
+   2. Download `Dockerfile` and `Makefile` from [git](https://github.com/JuneKimDev/landing.git) in the server you want to deploy the app
+   3. Create `docker-compose.yaml` as you wish
+   4. Start build process by type `make` in your shell
+   5. Run the docker image (if you made compose file, run `make up` in shell)
+
+2. Or, directly build on your server
+
+   1. Install pm2 via `npm i -g pm2` in the server you want to deploy the app
+   2. Clone the repo from [git](https://github.com/JuneKimDev/landing.git); this will create `/landing` directory for you
+   3. Run npm script `npm run build`
+   4. Deploy the app with `pm2 start npm --name "landing" -- start`
 
 ## Built With
 
