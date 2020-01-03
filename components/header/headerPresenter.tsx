@@ -16,7 +16,7 @@ const presenter = (props: {
         <div className="header__toggle-btn" onClick={toggleMenu}>
           <span></span>
         </div>
-        <Brand logo="/assets/placeholder_250x250.png" name="My Company" />
+        <Brand logo="/assets/LogoPlace_420x160.png" name="My Company" />
         <nav className="header__nav">
           <ul>
             <Item path="/" name="Home" onClicked={onMenuClicked} />

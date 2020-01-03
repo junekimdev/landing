@@ -17,7 +17,7 @@ const presenter = () => {
   return (
     <footer className="footer">
       <div className="footer__container">
-        <Brand image="/assets/placeholder_250x250.png" name={companyName} />
+        <Brand image="/assets/LogoPlace_420x160.png" name={companyName} />
         <Social
           fb_url="https://facebook.com"
           tw_url="https://twitter.com"
