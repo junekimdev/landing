@@ -14,8 +14,8 @@ const Meta = (props: IMeta) => (
     {props.url && <link rel="canonical" href={props.url} />}
 
     <meta property="og:type" content="website" />
-    <meta name="og:title" property="og:title" content={props.title} />
-    <meta name="og:description" property="og:description" content={props.desc} />
+    <meta property="og:title" content={props.title} />
+    <meta property="og:description" content={props.desc} />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:url" content={props.url} />
     <meta property="article:author" content={orgName} />
