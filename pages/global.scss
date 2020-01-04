@@ -4,8 +4,10 @@
   @include css-var($global-var);
 }
 
-html {
-  scroll-behavior: smooth;
+@include big-screen {
+  html {
+    scroll-behavior: smooth;
+  }
 }
 
 body {

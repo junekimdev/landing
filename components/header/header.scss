@@ -75,9 +75,15 @@
   }
 
   &__nav {
-    height: 0;
-    transition: height 500ms ease-out;
+    display: block;
+    max-height: 0px;
     overflow: hidden;
+    transition: max-height 0.5s cubic-bezier(0, 1, 0, 1);
+
+    &.show {
+      max-height: 100vh;
+      transition: max-height 0.5s ease-in-out;
+    }
   }
 
   .item {
@@ -136,14 +142,10 @@
     }
 
     &__nav {
-      height: auto;
+      max-height: 100vh;
       flex: 1;
       display: flex;
       justify-content: center;
-
-      &[style] {
-        height: auto !important;
-      }
 
       ul {
         flex: 1;
