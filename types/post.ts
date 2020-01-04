@@ -7,7 +7,7 @@ export interface IPost {
   image?: string;
   imageWidth?: string;
   imageHeight?: string;
-  body: string | JSX.Element;
+  body: string[];
 }
 
 export interface IPropsPagePost {

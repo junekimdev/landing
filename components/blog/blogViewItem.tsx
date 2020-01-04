@@ -12,6 +12,7 @@ const view = (props: { post: IPost }) => {
   let hh = datifyTime.getHours() % 12;
   hh = hh === 0 ? 12 : hh;
   const clockCode = String.fromCodePoint(0x1f54f + hh); // This gives clock unicode (1h~12h)
+  const bodyMapper = (text: string) => <p key={`${id}-${text}`}>{text}</p>;
 
   return (
     <article className="item">
@@ -24,7 +25,7 @@ const view = (props: { post: IPost }) => {
         {`${clockCode} ${yyyy}.${mm}.${dd}`}
       </time>
       {image && <img src={image} alt="Featured image" className="item__img" />}
-      <div className="item__body">{body}</div>
+      <div className="item__body">{body.map(bodyMapper)}</div>
     </article>
   );
 };

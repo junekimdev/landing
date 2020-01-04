@@ -1,1 +1,1 @@
-export { default, getDummy } from './postPresenter';
+export { default } from './postPresenter';
