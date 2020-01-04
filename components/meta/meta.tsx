@@ -1,18 +1,16 @@
 import Head from 'next/head';
-const orgName = 'JuneKimDev';
-const siteName = 'Landing Page Template';
-const Meta = (props: {
-  title: string;
-  desc: string;
-  url: string;
-  css?: string;
-  image?: string;
-  js?: string;
-  children?: any;
-}) => (
+import { IMeta } from '../../types';
+
+const orgName = 'MyCompany';
+const siteName = 'junekim.xyz';
+const homeUrl = process.env.PUBLIC_URL || 'landing.junekim.xyz';
+
+const Meta = (props: IMeta) => (
   <Head>
     <title>{props.title}</title>
+    <meta name="robots" content="index, follow" />
     <meta name="description" content={props.desc} />
+    <meta name="author" content={orgName} />
     {props.url && <link rel="canonical" href={props.url} />}
 
     <meta property="og:type" content="website" />
@@ -20,17 +18,30 @@ const Meta = (props: {
     <meta name="og:description" property="og:description" content={props.desc} />
     <meta property="og:site_name" content={siteName} />
     <meta property="og:url" content={props.url} />
+    <meta property="article:author" content={orgName} />
+    {props.image ? (
+      <>
+        <meta property="og:image" content={`//${homeUrl}${props.image}`} />
+        <meta property="og:image:secure_url" content={`//${homeUrl}${props.image}`} />
+        <meta property="og:image:width" content={props.imageWidth} />
+        <meta property="og:image:height" content={props.imageHeight} />
+      </>
+    ) : (
+      <>
+        <meta property="og:image" content={`//${homeUrl}/assets/LogoPlace_Extended_1200x627.png`} />
+        <meta
+          property="og:image:secure_url"
+          content={`//${homeUrl}/assets/LogoPlace_Extended_1200x627.png`}
+        />
+        <meta property="og:image:width" content="1200" />
+        <meta property="og:image:height" content="627" />
+      </>
+    )}
     <meta name="twitter:card" content="summary" />
+    <meta name="twitter:site" content={siteName} />
     <meta name="twitter:title" content={props.title} />
     <meta name="twitter:description" content={props.desc} />
-    <meta name="twitter:site" content={orgName} />
     <meta name="twitter:creator" content={orgName} />
-    {props.css && <link rel="stylesheet" href={props.css} />}
-    {props.image ? (
-      <meta property="og:image" content={props.image} />
-    ) : (
-      <meta property="og:image" content="/assets/LogoPlace_420x160.png" />
-    )}
     {props.image && <meta name="twitter:image" content={props.image} />}
 
     <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
@@ -50,6 +61,7 @@ const Meta = (props: {
       rel="stylesheet"
       href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
     />
+    {props.css && <link rel="stylesheet" href={props.css} />}
     {props.js && <script src={props.js}></script>}
     {props.children}
   </Head>
