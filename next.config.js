@@ -2,7 +2,7 @@ const withSass = require('@zeit/next-sass');
 module.exports = withSass({
   // @see https://nextjs.org/docs/api-reference/next.config.js/environment-variables
   env: {
-    PUBLIC_URL: landing.junekim.xyz,
+    PUBLIC_URL: 'landing.junekim.xyz',
   },
   generateBuildId: async () => {
     // @see https://github.com/zeit/next.js/wiki/Deployment
