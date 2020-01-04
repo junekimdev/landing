@@ -1,1 +1,1 @@
-export { default } from './blogInteractor';
+export { default, getDummy } from './blogInteractor';

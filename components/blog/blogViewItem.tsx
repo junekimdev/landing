@@ -1,12 +1,5 @@
 import Link from 'next/link';
-
-export interface IPost {
-  id: string;
-  title: string;
-  time: string;
-  image?: string;
-  body: string | JSX.Element;
-}
+import { IPost } from '../../types';
 
 const view = (props: { post: IPost }) => {
   const { id, title, time, image, body } = props.post;

@@ -1,1 +1,1 @@
-export { default } from './postInteractor';
+export { default, getDummy } from './postPresenter';

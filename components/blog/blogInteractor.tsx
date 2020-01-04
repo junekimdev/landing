@@ -1,6 +1,6 @@
 import { useState, useEffect, MouseEvent } from 'react';
 import Presenter from './blogPresenter';
-import { IPost } from './blogViewItem';
+import { IPost, IPropsCompBlog } from '../../types';
 const dummyBody = (
   <>
     <p>
@@ -20,15 +20,19 @@ const dummyBody = (
     </p>
   </>
 );
-const getDummy: (id: string) => IPost = id => ({
+
+export const getDummy: (id: string) => IPost = id => ({
   id,
   title: 'Hello World! This is June',
   time: new Date().toISOString(),
   image: `//unsplash.it/600/300?random=${Math.random()}`,
+  imageWidth: '600',
+  imageHeight: '300',
   body: dummyBody,
 });
-const interactor = () => {
-  const [posts, setPosts] = useState<Array<IPost>>([]);
+
+const interactor = (props: IPropsCompBlog) => {
+  const [posts, setPosts] = useState<Array<IPost>>(props.posts);
   const addPosts = () => {
     const dummpyPosts: Array<IPost> = [...posts];
     for (let i = posts.length; i < posts.length + 10; i++) dummpyPosts[i] = getDummy(i.toString());

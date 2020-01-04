@@ -1,6 +1,7 @@
 import { MouseEvent, Fragment } from 'react';
 import './blog.scss';
-import Item, { IPost } from './blogViewItem';
+import { IPost } from '../../types';
+import Item from './blogViewItem';
 
 const presenter = (props: {
   posts: Array<IPost>;
