@@ -13,12 +13,11 @@ build:
 
 # This updates local repo
 update:
-	if [ -d .git ];	then \
-		@git fetch --all && git reset --hard origin/master; \
+	@if [ -d .git ];	then \
+		git fetch --all && git reset --hard origin/master; \
 	else \
-		@echo "Git repo does not exist. Clone it first."; \
+		echo "Git repo does not exist. Clone it first."; \
 	fi
-
 up:
 	@docker-compose up -d \
 	&& sleep 5 \
