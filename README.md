@@ -27,22 +27,22 @@ git clone https://github.com/JuneKimDev/landing.git
 npm i
 ```
 
-## Deployment
+## Development & Deployment
 
-1. Build docker image (recommended)
+1. Using docker (recommended)
 
-   1. Create a directory as you wish (e.g. `/landing`)
-   2. Download `Dockerfile` and `Makefile` from [git](https://github.com/JuneKimDev/landing.git) in the server you want to deploy the app
-   3. Create `docker-compose.yaml` as you wish
-   4. Start build process by type `make` in your shell
-   5. Run the docker image (if you made compose file, run `make up` in shell)
+   1. Clone the repo from [git](https://github.com/JuneKimDev/landing.git); this will create `/landing` directory for you
+   2. Develop your landing page
+   3. Build by running `make`
+   4. Deploy by running `make up`
 
-2. Or, directly build on your server
+2. Using pm2
 
    1. Install pm2 via `npm i -g pm2` in the server you want to deploy the app
    2. Clone the repo from [git](https://github.com/JuneKimDev/landing.git); this will create `/landing` directory for you
-   3. Run npm script `npm run build`
-   4. Deploy the app with `pm2 start npm --name "landing" -- start`
+   3. Develop your landing page
+   4. Build by running `npm run build`
+   5. Deploy by running `pm2 start npm --name "landing" -- start`
 
 ## Built With
 

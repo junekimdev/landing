@@ -1,4 +1,4 @@
-.PHONY: all build up down clean
+.PHONY: all build update up down clean
 
 all: build
 
@@ -10,6 +10,14 @@ build:
 	docker build \
 	--build-arg GIT_HASH=$(shell git ls-remote --heads $(GIT_URL) | cut -c 1-40) \
 	-t junekimdev/$(NAME):$(TAG) .
+
+# This updates local repo
+update:
+	if [-d .git];	then
+		@git fetch --all && git reset --hard origin/master
+	else
+		@echo "Git repo does not exist. Clone it first."
+	fi
 
 up:
 	@docker-compose up -d \
