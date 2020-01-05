@@ -10,7 +10,7 @@ ARG GIT_HASH
 WORKDIR /landing
 
 # Add package files
-ADD package* .
+ADD package* ./
 
 # Install deps
 RUN set -eux \
@@ -28,7 +28,7 @@ ENV NODE_ENV=production \
   PUBLIC_URL=https://landing.junekim.xyz
 
 # Add all files
-ADD . .
+ADD ./ ./
 
 # Build and clean up
 RUN npm run build && npm prune
