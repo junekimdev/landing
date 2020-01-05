@@ -21,18 +21,15 @@ const Meta = (props: IMeta) => (
     <meta property="article:author" content={orgName} />
     {props.image ? (
       <>
-        <meta property="og:image" content={`//${homeUrl}${props.image}`} />
-        <meta property="og:image:secure_url" content={`//${homeUrl}${props.image}`} />
+        <meta property="og:image" content={props.image} />
+        <meta property="og:image:secure_url" content={props.image} />
         <meta property="og:image:width" content={props.imageWidth} />
         <meta property="og:image:height" content={props.imageHeight} />
       </>
     ) : (
       <>
-        <meta property="og:image" content={`//${homeUrl}/assets/LogoPlace_Extended_1200x627.png`} />
-        <meta
-          property="og:image:secure_url"
-          content={`//${homeUrl}/assets/LogoPlace_Extended_1200x627.png`}
-        />
+        <meta property="og:image" content="/assets/LogoPlace_Extended_1200x627.png" />
+        <meta property="og:image:secure_url" content="/assets/LogoPlace_Extended_1200x627.png" />
         <meta property="og:image:width" content="1200" />
         <meta property="og:image:height" content="627" />
       </>
