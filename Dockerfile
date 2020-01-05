@@ -28,7 +28,7 @@ RUN GIT_URL=https://github.com/JuneKimDev/landing.git \
 
 ENV NODE_ENV=production \
   BUILD_ID=${GIT_HASH} \
-  PUBLIC_URL=landing.junekim.xyz
+  PUBLIC_URL=https://landing.junekim.xyz
 
 WORKDIR /landing
 

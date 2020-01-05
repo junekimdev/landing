@@ -18,7 +18,7 @@ const getDummy: (id: string) => IPost = id => ({
   id,
   title: 'Hello World! This is June',
   time: new Date().toISOString(),
-  image: `//unsplash.it/600/300?random=${Math.random()}`,
+  image: `https://unsplash.it/600/300?random=${Math.random()}`,
   imageWidth: '600',
   imageHeight: '300',
   body: dummyBody,
