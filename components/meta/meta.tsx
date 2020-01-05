@@ -5,7 +5,7 @@ const Meta = (props: IMeta) => {
   const orgName = 'MyCompany';
   const siteName = 'junekim.xyz';
   const homeUrl = process.env.PUBLIC_URL || 'https://landing.junekim.xyz';
-  props.image = props.image || `${homeUrl}/public/assets/LogoPlace_Extended_1200x627.png`;
+  props.image = props.image || `${homeUrl}/assets/LogoPlace_Extended_1200x627.png`;
   props.imageWidth = props.imageWidth || '1200';
   props.imageHeight = props.imageHeight || '627';
   return (
