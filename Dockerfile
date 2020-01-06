@@ -3,14 +3,10 @@ FROM node:12-alpine
 
 LABEL maintainer="June Kim" version="1.0"
 
-EXPOSE 3000
-
-ARG GIT_HASH
-
 WORKDIR /landing
 
 # Add package files
-ADD package* ./
+COPY package* ./
 
 # Install deps
 RUN set -eux \
@@ -23,14 +19,18 @@ RUN set -eux \
   && npm i \
   && apk del .build-deps
 
+ARG GIT_HASH
+
 ENV NODE_ENV=production \
   BUILD_ID=${GIT_HASH} \
   PUBLIC_URL=https://landing.junekim.xyz
 
 # Add all files
-ADD ./ ./
+COPY ./ ./
 
 # Build and clean up
 RUN npm run build && npm prune
+
+EXPOSE 3000
 
 CMD npm start
