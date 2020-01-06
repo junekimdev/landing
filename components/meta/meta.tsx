@@ -5,9 +5,12 @@ const Meta = (props: IMeta) => {
   const orgName = 'MyCompany';
   const siteName = 'junekim.xyz';
   const homeUrl = process.env.PUBLIC_URL || 'https://landing.junekim.xyz';
-  props.image = props.image || `${homeUrl}/assets/LogoPlace_Extended_1200x627.png`;
-  props.imageWidth = props.imageWidth || '1200';
-  props.imageHeight = props.imageHeight || '627';
+  const {
+    image = `${homeUrl}/assets/LogoPlace_Extended_1200x627.png`,
+    imageWidth = '1200',
+    imageHeight = '627',
+  } = props;
+
   return (
     <Head>
       <title>{props.title}</title>
@@ -21,16 +24,16 @@ const Meta = (props: IMeta) => {
       <meta property="og:description" content={props.desc} />
       <meta property="og:site_name" content={siteName} />
       <meta property="og:url" content={props.url} />
-      <meta property="og:image" content={props.image} />
-      <meta property="og:image:secure_url" content={props.image} />
-      <meta property="og:image:width" content={props.imageWidth} />
-      <meta property="og:image:height" content={props.imageHeight} />
+      <meta property="og:image" content={image} />
+      <meta property="og:image:secure_url" content={image} />
+      <meta property="og:image:width" content={imageWidth} />
+      <meta property="og:image:height" content={imageHeight} />
       <meta name="twitter:card" content="summary" />
       <meta name="twitter:site" content={siteName} />
       <meta name="twitter:title" content={props.title} />
       <meta name="twitter:description" content={props.desc} />
       <meta name="twitter:creator" content={orgName} />
-      {props.image && <meta name="twitter:image" content={props.image} />}
+      {props.image && <meta name="twitter:image" content={image} />}
 
       <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png" />
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
