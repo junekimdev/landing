@@ -31,7 +31,7 @@
   .social {
     padding: 16px;
     display: flex;
-    justify-content: space-evenly;
+    @include space-evenly;
     align-items: center;
 
     &__icon {

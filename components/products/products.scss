@@ -63,7 +63,7 @@
     .item {
       display: flex;
       flex-direction: row;
-      justify-content: space-evenly;
+      @include space-evenly;
       align-items: center;
 
       $image-size: 312px;
@@ -93,7 +93,7 @@
     .item {
       display: flex;
       flex-direction: row;
-      justify-content: space-evenly;
+      @include space-evenly;
       align-items: center;
 
       $image-size: 400px;

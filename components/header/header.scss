@@ -150,7 +150,7 @@
       ul {
         flex: 1;
         display: flex;
-        justify-content: space-evenly;
+        @include space-evenly;
         align-items: center;
       }
     }

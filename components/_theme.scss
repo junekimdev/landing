@@ -53,6 +53,15 @@ $global-var: (
   }
 }
 
+// Work around for flexbox (justify-content: space-evenly)
+@mixin space-evenly {
+  justify-content: space-around; // for ie and edge
+  // exclude edge
+  @supports not (-ms-ime-align: auto) {
+    justify-content: space-evenly; // other browsers
+  }
+}
+
 .page-title {
   text-align: center;
   text-decoration: underline;
