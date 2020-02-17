@@ -61,6 +61,7 @@
     }
 
     &__desc {
+      width: 100%;
       line-height: 1.8em;
     }
   }
@@ -71,6 +72,21 @@
     &__personel {
       display: grid;
       grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+      @include only_ie {
+        grid-template-columns: 1fr 1fr;
+
+        @for $i from 1 through 50 {
+          .person:nth-child(#{$i*2 - 1}) {
+            grid-row: $i;
+            grid-column: 1;
+          }
+          .person:nth-child(#{$i*2}) {
+            grid-row: $i;
+            grid-column: 2;
+          }
+        }
+      }
     }
 
     .brand {
