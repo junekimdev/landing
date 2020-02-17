@@ -20,6 +20,13 @@ $screen-2: 780px;
   }
 }
 
+// IE specific style
+@mixin only_ie {
+  @media screen and (-ms-high-contrast: active), screen and (-ms-high-contrast: none) {
+    @content;
+  }
+}
+
 // CSS variable fallbacks
 $global-var: (
   accent-color: #00aabb,
