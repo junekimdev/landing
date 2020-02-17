@@ -23,6 +23,7 @@
     }
 
     &__desc {
+      width: 100%;
       display: flex;
       flex-direction: column;
       align-items: center;
@@ -33,6 +34,7 @@
     }
 
     &__content {
+      width: 100%;
       align-self: flex-start;
       line-height: 1.8em;
     }
