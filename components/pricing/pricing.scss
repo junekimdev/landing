@@ -73,11 +73,11 @@ $local-var: (
       background-color: #00f821;
       border-radius: 2rem;
     }
-  }
 
-  .plan.best {
-    --plan-title-color: #fbff1d;
-    --plan-color: #333333;
+    &.best {
+      --plan-title-color: #fbff1d;
+      --plan-color: #333333;
+    }
   }
 }
 
