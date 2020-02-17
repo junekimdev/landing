@@ -40,7 +40,8 @@
     ],
     "development": [
       "last 1 chrome version",
-      "last 1 firefox version"
+      "last 1 firefox version",
+      "ie 11"
     ],
     "ssr": [
       "node 12"
