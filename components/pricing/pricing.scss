@@ -86,15 +86,23 @@ $local-var: (
     &__container {
       display: grid;
       grid-template-columns: repeat(3, 1fr);
+      grid-template-areas:
+        'title title title'
+        'a b c';
     }
 
     &__title {
-      grid-row: 1;
-      grid-column: 1 / 4;
+      grid-area: title;
     }
 
-    .plan {
-      grid-row: 2;
+    #plan-a {
+      grid-area: a;
+    }
+    #plan-b {
+      grid-area: b;
+    }
+    #plan-c {
+      grid-area: c;
     }
   }
 }
