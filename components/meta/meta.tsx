@@ -52,6 +52,7 @@ const Meta = (props: IMeta) => {
         rel="stylesheet"
         href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
       />
+      <script src="/modernizr.js" type="text/javascript"></script>
       {props.css && <link rel="stylesheet" href={props.css} />}
       {props.js && <script src={props.js}></script>}
       {props.children}
