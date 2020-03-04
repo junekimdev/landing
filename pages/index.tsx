@@ -13,28 +13,30 @@ import About from '../components/about';
 const page = () => {
   const publicUrl = process.env.PUBLIC_URL || 'localhost:3000';
   useEffect(() => {
-    if (
-      // IE throws an error for it doesn't implement IntersectionObserver
-      window.navigator.userAgent.indexOf('MSIE ') > 0 ||
-      !!window.navigator.userAgent.match(/Trident.*rv\:11\./)
-    )
-      // Skip the code
-      return;
-    const header = document.querySelector('header');
-    const homeSection = document.querySelector('#home') as HTMLElement;
-    const observerOption = { rootMargin: '-72px 0px 0px 0px' };
-    const observer = new IntersectionObserver((entries, observer) => {
-      entries.forEach(entry => {
-        if (!entry.isIntersecting) {
-          // Home is not visiable
-          header?.classList.add('header--opaque');
-        } else {
-          header?.classList.remove('header--opaque');
-        }
-      });
-    }, observerOption);
-    if (homeSection !== null) observer.observe(homeSection);
-    return () => observer.unobserve(homeSection);
+    Modernizr.on('intersectionobserver', detected => {
+      const header = document.querySelector('header');
+      if (detected) {
+        // For broswers that implement Intersection-Observer
+        const homeSection = document.querySelector('#hero') as HTMLElement;
+        const observerOption = {
+          rootMargin: '-72px 0px 0px 0px',
+        };
+        const observer = new IntersectionObserver((entries, observer) => {
+          entries.forEach(entry => {
+            if (!entry.isIntersecting) {
+              // Home is not visiable
+              header?.classList.add('header--opaque');
+            } else {
+              header?.classList.remove('header--opaque');
+            }
+          });
+        }, observerOption);
+        if (homeSection !== null) observer.observe(homeSection);
+        return () => observer.unobserve(homeSection);
+      } else {
+        header?.classList.add('header--opaque');
+      }
+    });
   }, []);
 
   return (
