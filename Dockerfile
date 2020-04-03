@@ -23,7 +23,8 @@ ARG GIT_HASH
 
 ENV NODE_ENV=production \
   BUILD_ID=${GIT_HASH} \
-  PUBLIC_URL=https://landing.junekim.xyz
+  PUBLIC_URL=https://landing.junekim.xyz \
+  GTAG_ID=GTM-TN5D5WZ
 
 # Add all files
 COPY ./ ./
