@@ -10,27 +10,27 @@ const view = (props: {
   return (
     <div className="social">
       {fb_url && (
-        <a href={fb_url}>
+        <a href={fb_url} rel="noopener">
           <i className="social__icon fab fa-facebook-f"></i>
         </a>
       )}
       {tw_url && (
-        <a href={tw_url}>
+        <a href={tw_url} rel="noopener">
           <i className="social__icon fab fa-twitter"></i>
         </a>
       )}
       {insta_url && (
-        <a href={insta_url}>
+        <a href={insta_url} rel="noopener">
           <i className="social__icon fab fa-instagram"></i>
         </a>
       )}
       {linkedin_url && (
-        <a href={linkedin_url}>
+        <a href={linkedin_url} rel="noopener">
           <i className="social__icon fab fa-linkedin-in"></i>
         </a>
       )}
       {youtube_url && (
-        <a href={youtube_url}>
+        <a href={youtube_url} rel="noopener">
           <i className="social__icon fab fa-youtube"></i>
         </a>
       )}

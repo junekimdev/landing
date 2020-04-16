@@ -4,7 +4,9 @@ const view = () => {
       <span>Powered by</span>
       <img src="/assets/junekim_192x192.png" alt="Developer logo" className="engine__logo" />
       <span>
-        <a href="https://github.com/JuneKimDev">June Kim</a>
+        <a href="https://github.com/JuneKimDev" rel="noopener">
+          June Kim
+        </a>
       </span>
     </small>
   );
