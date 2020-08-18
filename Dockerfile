@@ -6,7 +6,7 @@ LABEL maintainer="June Kim" version="1.0"
 WORKDIR /landing
 
 # Add package files
-COPY package* ./
+COPY package.json yarn.lock ./
 
 # Install deps
 RUN set -eux \
@@ -15,8 +15,9 @@ RUN set -eux \
   g++ \
   make \
   python \
-  && npm i -g node-gyp \
-  && npm i \
+  yarn \
+  && yarn global add node-gyp \
+  && yarn install \
   && apk del .build-deps
 
 ARG GIT_HASH
@@ -30,8 +31,8 @@ ENV NODE_ENV=production \
 COPY ./ ./
 
 # Build and clean up
-RUN npm run build && npm prune
+RUN yarn run build
 
 EXPOSE 3000
 
-CMD npm start
+CMD yarn run start
