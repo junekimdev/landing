@@ -50,7 +50,7 @@ const Meta = (props: IMeta) => {
       <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto&display=swap" />
       <link
         rel="stylesheet"
-        href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/css/all.min.css"
+        href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
       />
       <script src="/modernizr.js" type="text/javascript"></script>
       {props.css && <link rel="stylesheet" href={props.css} />}
