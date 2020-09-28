@@ -19,7 +19,7 @@ const dummyBody = [
     non perferendis. Eum eveniet iure dolorum qui ipsa adipisci!`,
 ];
 
-const getDummy: (id: string) => Promise<IPost> = async id => {
+const getDummy: (id: string) => Promise<IPost> = async (id) => {
   return {
     id,
     title: 'Hello World! This is June',
@@ -31,7 +31,7 @@ const getDummy: (id: string) => Promise<IPost> = async id => {
   };
 };
 
-const page: NextPage<IPropsPageBlog> = props => {
+const page: NextPage<IPropsPageBlog> = (props) => {
   const publicUrl = process.env.PUBLIC_URL || 'localhost:3000';
   useEffect(() => {
     const header = document.querySelector('header');
@@ -42,8 +42,8 @@ const page: NextPage<IPropsPageBlog> = props => {
   return (
     <>
       <Meta
-        title="Blog | Landing Page Template"
-        desc="Blog of Landing Page Template"
+        title="Blog | Landing Page Demo"
+        desc="Blog of Landing Page Demo"
         url={`${publicUrl}/blog`}
       />
       <Header pathname="/blog" />
@@ -55,7 +55,7 @@ const page: NextPage<IPropsPageBlog> = props => {
   );
 };
 
-page.getInitialProps = async props => {
+page.getInitialProps = async (props) => {
   // This mimics getting posts from DB
   const posts: Array<IPost> = [];
   for (let i = 0; i < 10; i++) posts[i] = await getDummy(i.toString());

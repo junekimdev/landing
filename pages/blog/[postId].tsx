@@ -19,7 +19,7 @@ const dummyBody = [
     non perferendis. Eum eveniet iure dolorum qui ipsa adipisci!`,
 ];
 
-const getDummy: (id: string) => Promise<IPost> = async id => {
+const getDummy: (id: string) => Promise<IPost> = async (id) => {
   return {
     id,
     title: 'Hello World! This is June',
@@ -31,7 +31,7 @@ const getDummy: (id: string) => Promise<IPost> = async id => {
   };
 };
 
-const page: NextPage<IPropsPagePost> = props => {
+const page: NextPage<IPropsPagePost> = (props) => {
   const { pathname, query, post } = props;
   const { postId, title } = query;
   const publicUrl = process.env.PUBLIC_URL || 'localhost:3000';
@@ -44,8 +44,8 @@ const page: NextPage<IPropsPagePost> = props => {
   return (
     <>
       <Meta
-        title={`${title} | Landing Page Template`}
-        desc={`${title} | Landing Page Template`}
+        title={`${title} | Landing Page Demo`}
+        desc={`${title} | Landing Page Demo`}
         url={`${publicUrl}/blog/${postId}?title=${title}`}
         image={post.image}
         imageWidth={post.imageWidth}

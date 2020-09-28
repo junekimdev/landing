@@ -13,7 +13,7 @@ import About from '../components/about';
 const page = () => {
   const publicUrl = process.env.PUBLIC_URL || 'localhost:3000';
   useEffect(() => {
-    Modernizr.on('intersectionobserver', detected => {
+    Modernizr.on('intersectionobserver', (detected) => {
       const header = document.querySelector('header');
       if (detected) {
         // For broswers that implement Intersection-Observer
@@ -22,7 +22,7 @@ const page = () => {
           rootMargin: '-72px 0px 0px 0px',
         };
         const observer = new IntersectionObserver((entries, observer) => {
-          entries.forEach(entry => {
+          entries.forEach((entry) => {
             if (!entry.isIntersecting) {
               // Home is not visiable
               header?.classList.add('header--opaque');
@@ -41,7 +41,7 @@ const page = () => {
 
   return (
     <>
-      <Meta title="Landing Page Template" desc="Landing Page Template" url={publicUrl} />
+      <Meta title="Landing Page Demo" desc="Landing Page Demo" url={publicUrl} />
       <Header pathname="/" />
       <main role="main">
         <Home />

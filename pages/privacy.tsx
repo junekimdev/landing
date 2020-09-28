@@ -16,8 +16,8 @@ const page = () => {
   return (
     <>
       <Meta
-        title={`Privacy | Landing Page Template`}
-        desc={`Privacy | Landing Page Template`}
+        title={`Privacy | Landing Page Demo`}
+        desc={`Privacy | Landing Page Demo`}
         url={`${publicUrl}/privacy`}
       />
       <Header pathname="/privacy" />

@@ -1,7 +1,7 @@
-# Landing Page Template Client
+# Landing Page Demo
 
-Langing page is very important thing to have for every business in this digital age.  
-This project provides a client side template for such a landing page.
+A good langing page is a must-have for every business in this digital age.  
+This project provides a demo langing page that is built with NextJS which is a great ReactJS framework.
 
 ## Getting Started
 
@@ -24,7 +24,7 @@ Clone the repo and install dependencies
 
 ```shell
 git clone https://github.com/JuneKimDev/landing.git
-npm i
+yarn
 ```
 
 ## Development & Deployment
@@ -38,11 +38,11 @@ npm i
 
 2. Using pm2
 
-   1. Install pm2 via `npm i -g pm2` in the server you want to deploy the app
+   1. Install pm2 via `yarn global add pm2` in the server you want to deploy the app
    2. Clone the repo from [git](https://github.com/JuneKimDev/landing.git); this will create `/landing` directory for you
    3. Develop your landing page
-   4. Build by running `npm run build`
-   5. Deploy by running `pm2 start npm --name "landing" -- start`
+   4. Build by running `yarn run build`
+   5. Deploy by running `pm2 start yarn --name "landing" -- start`
 
 ## Built With
 
