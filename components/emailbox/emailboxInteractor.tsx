@@ -7,34 +7,23 @@ const validEmailRegex = /(?!.*\.{2})^([a-z\d!#$%&'*+\-\/=?^_`{|}~\u00A0-\uD7FF\u
 const interactor = (props: IEmailbox) => {
   const { uuid } = props;
   const [email, setEmail] = useState('');
+  const [msgValidity, setMsgValidity] = useState('');
+  const [isExpand, setIsExpand] = useState(false);
   const onEmailTyped = (e: ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setEmail(e.target.value);
   };
-  const onIconClicked = (uuid: string) => (e: MouseEvent<HTMLElement>) => {
-    const elements: HTMLElement[] | null[] = [];
-    elements[0] = e.target as HTMLElement;
-    elements[1] = document.getElementById(`email-${uuid}-input`);
-    elements[2] = document.getElementById(`email-${uuid}-submit`);
-    elements.forEach((element: HTMLElement | null) => {
-      element?.classList.add('expand');
-    });
-  };
+  const onIconClicked = (e: MouseEvent<HTMLElement>) => setIsExpand(true);
   const onSubmitClicked = (uuid: string) => (e: MouseEvent<HTMLButtonElement>) => {
     e.preventDefault();
     const element = document.getElementById(`email-${uuid}-input`) as HTMLInputElement;
-    const invalidMsg = document.getElementById(`email-${uuid}-invalid`) as HTMLInputElement;
-    const successfulMsg = document.getElementById(`email-${uuid}-successful`) as HTMLInputElement;
     if (element !== null) {
       let email = element.value;
       email = email.trim().toLowerCase();
-      if (validEmailRegex.test(email)) {
-        invalidMsg.classList.remove('emailbox__invalid--show');
-        successfulMsg.classList.add('emailbox__successful--show');
-        //TODO: API call to submit
-      } else {
-        invalidMsg.classList.add('emailbox__invalid--show');
-        successfulMsg.classList.remove('emailbox__successful--show');
+      const validity = validEmailRegex.test(email) ? 'ok' : 'ng';
+      setMsgValidity(validity);
+      if (validity === 'ok') {
+        // Do something when msg is valid
       }
     }
   };
@@ -43,6 +32,8 @@ const interactor = (props: IEmailbox) => {
     <Presenter
       uuid={uuid}
       value={email}
+      msgValidity={msgValidity}
+      isExpand={isExpand}
       onEmailTyped={onEmailTyped}
       onIconClicked={onIconClicked}
       onSubmitClicked={onSubmitClicked}

@@ -1,4 +1,4 @@
-import './post.scss';
+import styles from './post.module.scss';
 import { IPropsCompPost } from '../../types';
 
 const presenter = (props: IPropsCompPost) => {
@@ -10,15 +10,15 @@ const presenter = (props: IPropsCompPost) => {
   const bodyMapper = (text: string) => <p key={`${id}-${text}`}>{text}</p>;
 
   return (
-    <section className="post">
-      <div className="post__container">
-        {image && <img src={image} alt="Featured image" className="post__img" />}
-        <article className="post__article">
-          <h1 className="post__title">{title}</h1>
-          <time className="post__time" dateTime={datifyTime.toISOString()}>
+    <section className={styles.post}>
+      <div className={styles.container}>
+        {image && <img src={image} alt="Featured image" />}
+        <article>
+          <h1>{title}</h1>
+          <time dateTime={datifyTime.toISOString()}>
             {`${clockCode} ${datifyTime.toLocaleString()}`}
           </time>
-          <div className="post__body">{body.map(bodyMapper)}</div>
+          <div className={styles.body}>{body.map(bodyMapper)}</div>
         </article>
       </div>
     </section>

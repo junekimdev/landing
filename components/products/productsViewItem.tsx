@@ -1,11 +1,18 @@
-const view = (props: { imgSrc: string; imgDesc: string; descTitle: string; descContent: string | JSX.Element }) => {
+import styles from './products.module.scss';
+
+const view = (props: {
+  imgSrc: string;
+  imgDesc: string;
+  descTitle: string;
+  descContent: string | JSX.Element;
+}) => {
   const { imgSrc, imgDesc, descTitle, descContent } = props;
   return (
-    <div className="item">
+    <div className={styles.item}>
       <img src={imgSrc} alt={imgDesc} />
-      <div className="item__card">
-        <h1 className="item__title">{descTitle}</h1>
-        <p className="item__content">{descContent}</p>
+      <div className={styles.card}>
+        <h1 className={styles.title}>{descTitle}</h1>
+        <p className={styles.content}>{descContent}</p>
       </div>
     </div>
   );

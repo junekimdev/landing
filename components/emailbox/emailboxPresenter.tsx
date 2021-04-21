@@ -1,34 +1,50 @@
 import { ChangeEvent, MouseEvent } from 'react';
-import './emailbox.scss';
+import styles from './emailbox.module.scss';
 
 const presenter = (props: {
   uuid: string;
   value: string;
+  msgValidity: string;
+  isExpand: boolean;
   onEmailTyped: (event: ChangeEvent<HTMLInputElement>) => void;
-  onIconClicked: (uuid: string) => (event: MouseEvent<HTMLElement>) => void;
+  onIconClicked: (event: MouseEvent<HTMLElement>) => void;
   onSubmitClicked: (uuid: string) => (event: MouseEvent<HTMLButtonElement>) => void;
 }) => {
-  const { uuid, value, onEmailTyped, onIconClicked, onSubmitClicked } = props;
+  const {
+    uuid,
+    value,
+    msgValidity,
+    isExpand,
+    onEmailTyped,
+    onIconClicked,
+    onSubmitClicked,
+  } = props;
   const id = `email-${uuid}`;
   return (
-    <div className="emailbox">
-      <form className="emailbox__container" id={`${id}-form`}>
-        <label className="emailbox__title" form={`${id}-form`} htmlFor={`${id}-input`}>
+    <div className={styles.emailbox}>
+      <form className={styles.container} id={`${id}-form`}>
+        <label className={styles.title} form={`${id}-form`} htmlFor={`${id}-input`}>
           Subscribe our NEWS letter for FREE!
         </label>
-        <p className="emailbox__invalid" id={`${id}-invalid`}>
+        <p className={msgValidity === 'ng' ? `${styles.invalid} ${styles.show}` : styles.invalid}>
           Please, type a valid email
         </p>
-        <p className="emailbox__successful" id={`${id}-successful`}>
+        <p
+          className={
+            msgValidity === 'ok' ? `${styles.successful} ${styles.show}` : styles.successful
+          }
+        >
           Thank you! See you soon.
         </p>
         <i
-          className="emailbox__icon fas fa-envelope"
-          id={`${id}-icon`}
-          onClick={onIconClicked(uuid)}
+          className={
+            isExpand
+              ? `${styles.icon} fas fa-envelope ${styles.expand}`
+              : `${styles.icon} fas fa-envelope`
+          }
+          onClick={onIconClicked}
         ></i>
         <input
-          className="emailbox__input"
           id={`${id}-input`}
           form={`${id}-form`}
           name="email"
@@ -37,9 +53,10 @@ const presenter = (props: {
           placeholder="Email"
           value={value}
           onChange={onEmailTyped}
+          className={isExpand ? styles.expand : ''}
         />
         <button
-          className="emailbox__submit btn"
+          className={isExpand ? `${styles.submit_btn} ${styles.expand}` : styles.submit_btn}
           id={`${id}-submit`}
           type="submit"
           onClick={onSubmitClicked(uuid)}

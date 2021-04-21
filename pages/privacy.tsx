@@ -1,5 +1,4 @@
 import { useEffect } from 'react';
-import './global.scss';
 import Meta from '../components/meta';
 import Header from '../components/header';
 import Footer from '../components/footer';

@@ -1,6 +1,5 @@
 import { useEffect } from 'react';
 import { NextPage } from 'next';
-import '../global.scss';
 import Meta from '../../components/meta';
 import Header from '../../components/header';
 import Footer from '../../components/footer';

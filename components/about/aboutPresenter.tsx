@@ -1,4 +1,4 @@
-import './about.scss';
+import styles from './about.module.scss';
 import Brand from './aboutViewBrand';
 import Person from './aboutViewPerson';
 
@@ -14,15 +14,15 @@ const presenter = () => {
   );
 
   return (
-    <section className="about hash" id="about">
-      <div className="about__container">
-        <h1 className="about__title page-title">About</h1>
-        <h2 className="about__subtitle">Who are we?</h2>
+    <section className={styles.about} id="about">
+      <div className={styles.container}>
+        <h1 className={styles.page_title}>About</h1>
+        <h2 className={styles.subtitle}>Who are we?</h2>
         <Brand logo="/assets/LogoPlace_420x160.png" desc={company_desc} />
-        <h2 className="about__subtitle">Our Mission</h2>
-        <p className="about__mission">{longLorem}</p>
-        <h2 className="about__subtitle">Faces behind the curtain</h2>
-        <div className="about__personel">
+        <h2 className={styles.subtitle}>Our Mission</h2>
+        <p className={styles.mission}>{longLorem}</p>
+        <h2 className={styles.subtitle}>Faces behind the curtain</h2>
+        <div className={styles.personel}>
           <Person image="//i.pravatar.cc/300?u=CEO" title="CEO" desc={lorem} />
           <Person image="//i.pravatar.cc/300?u=CTO" title="CTO" desc={lorem} />
           <Person image="//i.pravatar.cc/300?u=CFO" title="CFO" desc={lorem} />

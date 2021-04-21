@@ -1,4 +1,5 @@
 import Link from 'next/link';
+import styles from './blog.module.scss';
 import { IPost } from '../../types';
 
 const view = (props: { post: IPost }) => {
@@ -15,17 +16,15 @@ const view = (props: { post: IPost }) => {
   const bodyMapper = (text: string) => <p key={`${id}-${text}`}>{text}</p>;
 
   return (
-    <article className="item">
-      <h1 className="item__title">
+    <article className={styles.item}>
+      <h1 className={styles.title}>
         <Link href={`/blog/${id}?title=${title}`} as={`/blog/${id}?title=${title}`}>
           <a>{title}</a>
         </Link>
       </h1>
-      <time className="item__time" dateTime={datifyTime.toISOString()}>
-        {`${clockCode} ${yyyy}.${mm}.${dd}`}
-      </time>
-      {image && <img src={image} alt="Featured image" className="item__img" />}
-      <div className="item__body">{body.map(bodyMapper)}</div>
+      <time dateTime={datifyTime.toISOString()}>{`${clockCode} ${yyyy}.${mm}.${dd}`}</time>
+      {image && <img src={image} alt="Featured image" />}
+      <div className={styles.body}>{body.map(bodyMapper)}</div>
     </article>
   );
 };

@@ -1,0 +1,139 @@
+@import '../theme.scss';
+
+.footer {
+  @include var(background-color, footer-bg-color);
+  display: flex;
+  justify-content: center;
+  margin-top: auto;
+  @include var(color, footer-font-color);
+
+  .container {
+    @include var(width, max-width);
+
+    @include big-screen {
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      grid-template-areas:
+        'brand social'
+        'cs cs'
+        'legal engine';
+    }
+  }
+}
+
+.brand {
+  padding: 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .logo {
+    @include var(height, brand-image-size);
+    margin-right: 16px;
+    filter: grayscale(1);
+  }
+
+  .name {
+    @include var(font-size, brand-font-size);
+  }
+
+  @include big-screen {
+    grid-area: brand;
+  }
+}
+
+.social {
+  padding: 16px;
+  display: flex;
+  @include space-evenly;
+  align-items: center;
+
+  .icon {
+    width: 2rem;
+    height: 2rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.5em;
+    border-radius: 50%;
+    // @include var(background-color, background-color);
+    box-shadow: -2px -2px 4px rgba(#fff, 0.3), 2px 2px 4px rgba(#000, 0.3);
+  }
+
+  @include big-screen {
+    grid-area: social;
+  }
+}
+
+.cs {
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .info {
+    padding: 4px;
+    text-align: center;
+  }
+
+  @include big-screen {
+    grid-area: cs;
+    flex-direction: row;
+
+    br {
+      display: none;
+    }
+  }
+}
+
+.legal {
+  padding: 8px 16px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  .info {
+    padding: 4px;
+    text-align: center;
+
+    a,
+    a:link,
+    a:visited {
+      text-decoration: underline;
+      @include var(color, footer-font-color);
+    }
+  }
+
+  @include big-screen {
+    grid-area: legal;
+    flex-direction: row;
+    justify-content: flex-start;
+  }
+}
+
+.engine {
+  padding: 8px 16px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  .logo {
+    width: 2em;
+    height: 2em;
+    margin: 0 4px;
+  }
+
+  a,
+  a:link,
+  a:visited {
+    text-decoration: underline;
+    @include var(color, footer-font-color);
+  }
+
+  @include big-screen {
+    grid-area: engine;
+    justify-content: flex-end;
+  }
+}

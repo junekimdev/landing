@@ -1,6 +1,4 @@
-const withStyles = require('@webdeb/next-styles');
-
-module.exports = withStyles({
+module.exports = {
   sass: true, // use .scss files
   modules: true, // style.(m|module).css & style.(m|module).scss for module files
   // @see https://nextjs.org/docs/api-reference/next.config.js/environment-variables
@@ -19,4 +17,8 @@ module.exports = withStyles({
     return null;
   },
   poweredByHeader: false,
-});
+  // @see https://nextjs.org/docs/messages/webpack5
+  future: {
+    webpack5: true,
+  },
+};

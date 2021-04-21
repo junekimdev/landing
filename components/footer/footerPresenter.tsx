@@ -1,4 +1,4 @@
-import './footer.scss';
+import styles from './footer.module.scss';
 import Brand from './footerViewBrand';
 import Social from './footerViewSocial';
 import CS from './footerViewCS';
@@ -15,8 +15,8 @@ const presenter = () => {
   );
   const companyPhone = '+00-000-0000-0000';
   return (
-    <footer className="footer">
-      <div className="footer__container">
+    <footer className={styles.footer}>
+      <div className={styles.container}>
         <Brand image="/assets/LogoPlace_420x160.png" name={companyName} />
         <Social
           fb_url="https://facebook.com"

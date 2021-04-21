@@ -6,7 +6,7 @@
   align-items: center;
   @include var(background-color, accent-color);
 
-  &__container {
+  .container {
     @include var(width, max-width);
     display: grid;
     grid-template-columns: 1fr;
@@ -24,31 +24,31 @@
     }
   }
 
-  &__title {
+  .title {
     grid-area: title;
     font-weight: 700;
   }
 
-  &__invalid {
+  .invalid {
     grid-area: message;
     display: none;
     color: #ffff00;
 
-    &--show {
+    &.show {
       display: block;
     }
   }
 
-  &__successful {
+  .successful {
     grid-area: message;
     display: none;
 
-    &--show {
+    &.show {
       display: block;
     }
   }
 
-  &__icon {
+  .icon {
     display: none;
     @supports (clip-path: circle(100%)) {
       grid-area: input;
@@ -63,14 +63,14 @@
       box-shadow: -2px -2px 4px rgba(#fff, 0.3), 2px 2px 4px rgba(#000, 0.3);
       z-index: 2;
       cursor: pointer;
+    }
 
-      &.expand {
-        display: none;
-      }
+    &.expand {
+      display: none;
     }
   }
 
-  &__input {
+  input {
     grid-area: input;
     width: 90%;
     padding: 8px;
@@ -85,7 +85,8 @@
     }
   }
 
-  &__submit {
+  .submit_btn {
+    @extend .btn;
     grid-area: submit;
     text-transform: uppercase;
     font-weight: 700;

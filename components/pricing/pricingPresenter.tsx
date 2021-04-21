@@ -1,5 +1,5 @@
 import { MouseEvent } from 'react';
-import './pricing.scss';
+import styles from './pricing.module.scss';
 import Plan from './pricingViewPlan';
 
 const presenter = (props: { onBtnClicked: (event: MouseEvent<HTMLButtonElement>) => void }) => {
@@ -27,16 +27,16 @@ const presenter = (props: { onBtnClicked: (event: MouseEvent<HTMLButtonElement>)
     </>
   );
   return (
-    <section className="pricing hash" id="pricing">
-      <div className="pricing__container">
-        <h1 className="pricing__title page-title">Pricing</h1>
+    <section className={styles.pricing} id="pricing">
+      <div className={styles.container}>
+        <h1 className={styles.title}>Pricing</h1>
         <Plan uuid="a" title="Free" body={planBody} onBtnClicked={onBtnClicked} />
         <Plan
           uuid="b"
-          className="best"
           title="Basic"
           price="100"
           body={planBody}
+          isBest
           onBtnClicked={onBtnClicked}
         />
         <Plan uuid="c" title="Premium" price="500" body={planBody} onBtnClicked={onBtnClicked} />

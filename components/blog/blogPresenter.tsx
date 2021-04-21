@@ -1,5 +1,5 @@
 import { MouseEvent, Fragment } from 'react';
-import './blog.scss';
+import styles from './blog.module.scss';
 import { IPost } from '../../types';
 import Item from './blogViewItem';
 
@@ -16,18 +16,17 @@ const presenter = (props: {
   );
 
   return (
-    <section className="blog">
-      <div className="blog__container">
-        <div className="blog__header">
+    <section className={styles.blog}>
+      <div className={styles.container}>
+        <div className={styles.header}>
           <img
             src={`//unsplash.it/1200/180?random=${Math.random()}`}
             alt="Blog featured image"
-            className="blog__featured-img"
             id="blog__featured-img"
           />
         </div>
-        <div className="blog__posts">{posts.map(articleMapper)}</div>
-        <button className="blog__more btn" onClick={onMoreClicked}>
+        <div className={styles.posts}>{posts.map(articleMapper)}</div>
+        <button className={styles.more_btn} onClick={onMoreClicked}>
           Show More
         </button>
       </div>

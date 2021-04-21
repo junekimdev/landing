@@ -1,13 +1,13 @@
-import './features.scss';
+import styles from './features.module.scss';
 import Item from './featuresViewItem';
 
 const presenter = () => {
   const lorem =
     'Lorem ipsum dolor sit amet consectetur adipisicing elit. Aliquid officia eius necessitatibus est, sequi ducimus totam velit fugiat fuga sunt dolorum doloremque laudantium recusandae aut laboriosam neque consectetur saepe repellat?';
   return (
-    <section className="features hash" id="features">
-      <div className="features__container">
-        <h1 className="features__title page-title">Features</h1>
+    <section className={`${styles.features} hash`} id="features">
+      <div className={styles.container}>
+        <h1 className={styles.page_title}>Features</h1>
         <Item image="//unsplash.it/300/300?random=f1" title="Feature 1" content={lorem} />
         <Item image="//unsplash.it/300/300?random=f2" title="Feature 2" content={lorem} />
         <Item image="//unsplash.it/300/300?random=f3" title="Feature 3" content={lorem} />

@@ -1,5 +1,6 @@
 import { MouseEvent } from 'react';
 import Link from 'next/link';
+import styles from './header.module.scss';
 
 const view = (props: {
   path: string;
@@ -11,7 +12,7 @@ const view = (props: {
   return (
     <li>
       <Link href={path} as={path} scroll={path[0] === '/'}>
-        <a className="item" onClick={onClicked}>
+        <a className={styles.item} onClick={onClicked}>
           {name}
         </a>
       </Link>

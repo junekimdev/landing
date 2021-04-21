@@ -1,0 +1,98 @@
+@import '../theme.scss';
+
+.about {
+  @include var(background-color, background-color);
+  display: flex;
+  justify-content: center;
+
+  .container {
+    @include var(width, max-width);
+  }
+
+  .subtitle {
+    margin: 16px;
+    padding: 4px;
+    border-bottom: 1px solid rgba(#000, 0.2);
+  }
+
+  .mission {
+    padding: 32px;
+    margin-bottom: 16px;
+    line-height: 1.8em;
+  }
+
+  @include big-screen {
+    .personel {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+
+      @include only_ie {
+        grid-template-columns: 1fr 1fr;
+
+        @for $i from 1 through 50 {
+          .person:nth-child(#{$i*2 - 1}) {
+            grid-row: $i;
+            grid-column: 1;
+          }
+          .person:nth-child(#{$i*2}) {
+            grid-row: $i;
+            grid-column: 2;
+          }
+        }
+      }
+    }
+  }
+}
+
+.brand {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+
+  .logo {
+    max-width: 200px;
+    margin-bottom: 32px;
+  }
+
+  .desc {
+    line-height: 1.8em;
+
+    strong {
+      font-size: 1.5em;
+    }
+  }
+
+  @include big-screen {
+    flex-direction: row;
+
+    .logo {
+      margin: 0 32px;
+    }
+  }
+}
+
+.person {
+  padding: 16px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-bottom: 16px;
+
+  img {
+    width: 150px;
+    border-radius: 50%;
+    box-shadow: 0 0 8px 8px rgba(#0000bb, 0.3);
+    margin-bottom: 32px;
+  }
+
+  .title {
+    margin-bottom: 16px;
+  }
+
+  .desc {
+    width: 100%;
+    line-height: 1.8em;
+  }
+}

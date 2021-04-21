@@ -5,14 +5,14 @@
   display: flex;
   justify-content: center;
 
-  &__container {
+  .container {
     @include var(width, max-width);
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  &__header {
+  .header {
     position: relative;
     overflow: hidden;
     @include var(height, blog-image-height);
@@ -33,17 +33,18 @@
     }
   }
 
-  &__featured-img {
+  img {
     width: 100%;
     height: 100%;
     object-fit: cover;
   }
 
-  &__posts {
+  .posts {
     @include var(max-width, blog-post-width);
   }
 
-  &__more {
+  .more_btn {
+    @extend .btn;
     margin: 16px;
     padding: 16px 32px;
     color: white;
@@ -59,33 +60,33 @@
       display: none;
     }
   }
+}
 
-  .item {
-    display: flex;
-    flex-direction: column;
-    padding: 16px;
+.item {
+  display: flex;
+  flex-direction: column;
+  padding: 16px;
 
-    &__title {
-      @include var(font-size, blog-title-font-size);
-    }
+  .title {
+    @include var(font-size, blog-title-font-size);
+  }
 
-    &__time {
-      margin-bottom: 8px;
-      display: block;
-      font-weight: 500;
-      @include var(color, blog-time-color);
-    }
+  time {
+    margin-bottom: 8px;
+    display: block;
+    font-weight: 500;
+    @include var(color, blog-time-color);
+  }
 
-    &__img {
-      align-self: center;
-      width: 100%;
-      max-height: 300px;
-      object-fit: cover;
-    }
+  img {
+    align-self: center;
+    width: 100%;
+    max-height: 300px;
+    object-fit: cover;
+  }
 
-    &__body {
-      font-size: 1.5em;
-      line-height: 1.5em;
-    }
+  .body {
+    font-size: 1.5em;
+    line-height: 1.5em;
   }
 }

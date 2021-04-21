@@ -1,4 +1,4 @@
-import './products.scss';
+import styles from './products.module.scss';
 import Item from './productsViewItem';
 
 const lorem = (
@@ -13,9 +13,9 @@ const lorem = (
 
 const presenter = () => {
   return (
-    <section className="products hash" id="products">
-      <div className="products__container">
-        <h1 className="products__title page-title">Products</h1>
+    <section className={styles.products} id="products">
+      <div className={styles.container}>
+        <h1 className={styles.page_title}>Products</h1>
         <Item
           imgSrc="//unsplash.it/512/512?random=1"
           imgDesc="product1"
@@ -34,7 +34,7 @@ const presenter = () => {
           descTitle="Product 3"
           descContent={lorem}
         />
-        <div className="email"></div>
+        <div className={styles.email}></div>
       </div>
     </section>
   );

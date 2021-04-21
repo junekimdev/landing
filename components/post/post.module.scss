@@ -5,38 +5,38 @@
   display: flex;
   justify-content: center;
 
-  &__container {
+  .container {
     @include var(width, max-width);
     display: flex;
     flex-direction: column;
     align-items: center;
   }
 
-  &__img {
+  img {
     width: 100%;
     @include var(height, blog-image-height);
     object-fit: cover;
   }
 
-  &__article {
+  article {
     @include var(max-width, blog-post-width);
     display: flex;
     flex-direction: column;
     padding: 16px;
   }
 
-  &__title {
+  h1 {
     @include var(font-size, blog-title-font-size);
   }
 
-  &__time {
+  time {
     margin-bottom: 8px;
     display: block;
     font-weight: 500;
     @include var(color, blog-time-color);
   }
 
-  &__body {
+  .body {
     font-size: 1.5em;
     line-height: 1.5em;
   }
