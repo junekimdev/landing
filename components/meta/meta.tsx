@@ -42,18 +42,7 @@ const Meta = (props: IMeta) => {
       <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
       <meta name="msapplication-TileColor" content="#da532c" />
       <meta name="theme-color" content="#dfdfdf" />
-
-      <link
-        rel="stylesheet"
-        href="//cdnjs.cloudflare.com/ajax/libs/normalize/8.0.1/normalize.min.css"
-      />
-      <link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto&display=swap" />
-      <link
-        rel="stylesheet"
-        href="//cdnjs.cloudflare.com/ajax/libs/font-awesome/5.14.0/css/all.min.css"
-      />
       <script src="/modernizr.js" type="text/javascript" defer></script>
-      {props.css && <link rel="stylesheet" href={props.css} />}
       {props.js && <script src={props.js} defer></script>}
       {props.children}
     </Head>
