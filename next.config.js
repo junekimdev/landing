@@ -17,8 +17,4 @@ module.exports = {
     return null;
   },
   poweredByHeader: false,
-  // @see https://nextjs.org/docs/messages/webpack5
-  future: {
-    webpack5: true,
-  },
 };
