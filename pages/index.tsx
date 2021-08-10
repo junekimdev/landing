@@ -20,7 +20,7 @@ const page = () => {
         const observerOption = {
           rootMargin: '-72px 0px 0px 0px',
         };
-        const observer = new IntersectionObserver((entries, observer) => {
+        const observer = new IntersectionObserver((entries, _observer) => {
           entries.forEach((entry) => {
             if (!entry.isIntersecting) {
               // Home is not visiable
@@ -34,6 +34,7 @@ const page = () => {
         return () => observer.unobserve(homeSection);
       } else {
         header?.classList.add('header--opaque');
+        return;
       }
     });
   }, []);

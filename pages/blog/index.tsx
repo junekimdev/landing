@@ -54,7 +54,7 @@ const page: NextPage<IPropsPageBlog> = (props) => {
   );
 };
 
-page.getInitialProps = async (props) => {
+page.getInitialProps = async (_props) => {
   // This mimics getting posts from DB
   const posts: Array<IPost> = [];
   for (let i = 0; i < 10; i++) posts[i] = await getDummy(i.toString());
