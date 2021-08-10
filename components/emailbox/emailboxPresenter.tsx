@@ -10,15 +10,8 @@ const presenter = (props: {
   onIconClicked: (event: MouseEvent<HTMLElement>) => void;
   onSubmitClicked: (uuid: string) => (event: MouseEvent<HTMLButtonElement>) => void;
 }) => {
-  const {
-    uuid,
-    value,
-    msgValidity,
-    isExpand,
-    onEmailTyped,
-    onIconClicked,
-    onSubmitClicked,
-  } = props;
+  const { uuid, value, msgValidity, isExpand, onEmailTyped, onIconClicked, onSubmitClicked } =
+    props;
   const id = `email-${uuid}`;
   return (
     <div className={styles.emailbox}>
