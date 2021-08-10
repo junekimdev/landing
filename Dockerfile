@@ -1,5 +1,5 @@
-# based on nodeJS v.12 alpine image
-FROM node:12-alpine
+# based on nodeJS v.14 alpine image
+FROM node:14-alpine
 
 LABEL maintainer="June Kim" version="1.0"
 
@@ -31,8 +31,8 @@ ENV NODE_ENV=production \
 COPY ./ ./
 
 # Build and clean up
-RUN yarn run build
+RUN yarn build
 
 EXPOSE 3000
 
-CMD yarn run start
+CMD ["yarn", "start"]
