@@ -16,5 +16,6 @@ module.exports = {
 
     return null;
   },
+  eslint: { ignoreDuringBuilds: true },
   poweredByHeader: false,
 };
