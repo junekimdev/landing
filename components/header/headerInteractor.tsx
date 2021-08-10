@@ -1,4 +1,3 @@
-import { useState, useEffect, MouseEvent } from 'react';
 import Presenter from './headerPresenter';
 
 const interactor = (props: { pathname: string }) => {

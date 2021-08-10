@@ -1,4 +1,3 @@
-import { MouseEvent } from 'react';
 import styles from './header.module.scss';
 import Item from './headerViewItem';
 import Brand from './headerViewBrand';
