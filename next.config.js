@@ -7,15 +7,10 @@ module.exports = {
     PUBLIC_URL: process.env.PUBLIC_URL,
     GTAG_ID: process.env.GTAG_ID,
   },
-  generateBuildId: async () => {
-    // @see https://github.com/zeit/next.js/wiki/Deployment
-    // When process.env.BUILD_ID is undefined, fall back to the default
-    if (process.env.BUILD_ID) {
-      return process.env.BUILD_ID;
-    }
-
-    return null;
-  },
+  // @see https://github.com/zeit/next.js/wiki/Deployment
+  // When process.env.BUILD_ID is undefined, fall back to the default
+  generateBuildId: async () => (process.env.BUILD_ID ? process.env.BUILD_ID : null),
   eslint: { ignoreDuringBuilds: true },
   poweredByHeader: false,
+  reactStrictMode: true,
 };
