@@ -3,7 +3,7 @@ FROM node:14-alpine
 
 LABEL maintainer="June Kim" version="1.0"
 
-WORKDIR /landing
+WORKDIR /app
 
 # Add package files
 COPY package.json yarn.lock ./
