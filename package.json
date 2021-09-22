@@ -19,18 +19,18 @@
     "next": "^11.1.2",
     "react": "^17.0.2",
     "react-dom": "^17.0.2",
-    "sass": "^1.38.2"
+    "sass": "^1.42.0"
   },
   "devDependencies": {
     "@types/modernizr": "^3.5.3",
-    "@types/node": "^16.7.10",
-    "@types/react": "^17.0.19",
+    "@types/node": "^16.9.6",
+    "@types/react": "^17.0.24",
     "@types/react-dom": "^17.0.9",
-    "@typescript-eslint/eslint-plugin": "^4.30.0",
-    "@typescript-eslint/parser": "^4.30.0",
+    "@typescript-eslint/eslint-plugin": "^4.31.2",
+    "@typescript-eslint/parser": "^4.31.2",
     "eslint": "^7.32.0",
     "modernizr": "^3.11.8",
-    "typescript": "^4.4.2"
+    "typescript": "^4.4.3"
   },
   "browserslist": {
     "production": [
