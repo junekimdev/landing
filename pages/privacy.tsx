@@ -4,7 +4,7 @@ import Header from '../components/header';
 import Footer from '../components/footer';
 import Privacy from '../components/privacy';
 
-const page = () => {
+const Page = () => {
   const publicUrl = process.env.PUBLIC_URL || 'localhost:3000';
   useEffect(() => {
     const header = document.querySelector('header');
@@ -28,4 +28,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;

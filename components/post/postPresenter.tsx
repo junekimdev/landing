@@ -1,7 +1,7 @@
 import styles from './post.module.scss';
-import { IPropsCompPost } from '../../types';
+import { IPost } from '../../types';
 
-const presenter = (props: IPropsCompPost) => {
+const presenter = (props: { post: IPost }) => {
   const { id, title, time, image, body } = props.post;
   const datifyTime = new Date(time);
   let hh = datifyTime.getHours() % 12;

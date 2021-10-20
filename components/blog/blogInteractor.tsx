@@ -1,6 +1,6 @@
 import { useState, MouseEvent } from 'react';
 import Presenter from './blogPresenter';
-import { IPost, IPropsCompBlog } from '../../types';
+import { IPost } from '../../types';
 
 const dummyBody = [
   `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi pariatur voluptatibus nulla
@@ -14,7 +14,7 @@ const dummyBody = [
     non perferendis. Eum eveniet iure dolorum qui ipsa adipisci!`,
 ];
 
-const getDummy: (id: string) => IPost = id => ({
+const getDummy: (id: string) => IPost = (id) => ({
   id,
   title: 'Hello World! This is June',
   time: new Date().toISOString(),
@@ -24,10 +24,10 @@ const getDummy: (id: string) => IPost = id => ({
   body: dummyBody,
 });
 
-const interactor = (props: IPropsCompBlog) => {
-  const [posts, setPosts] = useState<Array<IPost>>(props.posts);
+const interactor = (props: { posts: IPost[] }) => {
+  const [posts, setPosts] = useState<IPost[]>(props.posts);
   const addPosts = () => {
-    const dummpyPosts: Array<IPost> = [...posts];
+    const dummpyPosts: IPost[] = [...posts];
     for (let i = posts.length; i < posts.length + 10; i++) dummpyPosts[i] = getDummy(i.toString());
     setPosts(dummpyPosts);
   };

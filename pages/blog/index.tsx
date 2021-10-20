@@ -1,10 +1,10 @@
 import { useEffect } from 'react';
-import { NextPage } from 'next';
+import { GetServerSideProps } from 'next';
 import Meta from '../../components/meta';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import Blog from '../../components/blog';
-import { IPropsPageBlog, IPost } from '../../types';
+import { IPost } from '../../types';
 
 const dummyBody = [
   `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi pariatur voluptatibus nulla
@@ -30,7 +30,7 @@ const getDummy: (id: string) => Promise<IPost> = async (id) => {
   };
 };
 
-const page: NextPage<IPropsPageBlog> = (props) => {
+function Page(props: { posts: IPost[] }) {
   const publicUrl = process.env.PUBLIC_URL || 'localhost:3000';
   useEffect(() => {
     const header = document.querySelector('header');
@@ -52,13 +52,13 @@ const page: NextPage<IPropsPageBlog> = (props) => {
       <Footer />
     </>
   );
-};
+}
 
-page.getInitialProps = async (_props) => {
+export const getServerSideProps: GetServerSideProps = async (_context) => {
   // This mimics getting posts from DB
-  const posts: Array<IPost> = [];
+  const posts: IPost[] = [];
   for (let i = 0; i < 10; i++) posts[i] = await getDummy(i.toString());
-  return { posts };
+  return { props: { posts } };
 };
 
-export default page;
+export default Page;

@@ -1,10 +1,11 @@
 import { useEffect } from 'react';
-import { NextPage } from 'next';
+import { GetServerSideProps } from 'next';
+import { useRouter } from 'next/router';
 import Meta from '../../components/meta';
 import Header from '../../components/header';
 import Footer from '../../components/footer';
 import Post from '../../components/post';
-import { IPropsPagePost, IPost } from '../../types';
+import { IPost } from '../../types';
 
 const dummyBody = [
   `Lorem, ipsum dolor sit amet consectetur adipisicing elit. Sequi pariatur voluptatibus nulla
@@ -30,9 +31,10 @@ const getDummy: (id: string) => Promise<IPost> = async (id) => {
   };
 };
 
-const page: NextPage<IPropsPagePost> = (props) => {
-  const { pathname, query, post } = props;
-  const { postId, title } = query;
+function Page(props: { post: IPost }) {
+  const { post } = props;
+  const router = useRouter();
+  const { postId, title } = router.query;
   const publicUrl = process.env.PUBLIC_URL || 'localhost:3000';
   useEffect(() => {
     const header = document.querySelector('header');
@@ -50,19 +52,20 @@ const page: NextPage<IPropsPagePost> = (props) => {
         imageWidth={post.imageWidth}
         imageHeight={post.imageHeight}
       />
-      <Header pathname={pathname} />
+      <Header pathname={router.pathname} />
       <main role="main">
         <Post post={post} />
       </main>
       <Footer />
     </>
   );
-};
+}
 
-page.getInitialProps = async ({ pathname, query }) => {
+export const getServerSideProps: GetServerSideProps = async (context) => {
   // This mimics getting a post from DB
+  const { query } = context;
   const post = await getDummy(query.postId as string);
-  return { pathname, query, post };
+  return { props: { post } };
 };
 
-export default page;
+export default Page;

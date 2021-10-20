@@ -4,7 +4,7 @@ import { IPost } from '../../types';
 import Item from './blogViewItem';
 
 const presenter = (props: {
-  posts: Array<IPost>;
+  posts: IPost[];
   onMoreClicked: (event: MouseEvent<HTMLButtonElement>) => void;
 }) => {
   const { posts, onMoreClicked } = props;

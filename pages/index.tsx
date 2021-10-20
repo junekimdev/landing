@@ -9,7 +9,7 @@ import Pricing from '../components/pricing';
 import Features from '../components/features';
 import About from '../components/about';
 
-const page = () => {
+const Page = () => {
   const publicUrl = process.env.PUBLIC_URL || 'localhost:3000';
   useEffect(() => {
     Modernizr.on('intersectionobserver', (detected) => {
@@ -57,4 +57,4 @@ const page = () => {
   );
 };
 
-export default page;
+export default Page;
