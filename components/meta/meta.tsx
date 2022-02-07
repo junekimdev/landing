@@ -1,12 +1,13 @@
 import Head from 'next/head';
-import { IMeta } from '../../types';
+// import GTag from './gtag';
+import { TMPropsMeta } from './metaType';
 
-const Meta = (props: IMeta) => {
-  const orgName = 'MyCompany';
-  const siteName = 'junekim.xyz';
-  const homeUrl = process.env.PUBLIC_URL || 'https://landing.junekim.xyz';
+const Meta = (props: TMPropsMeta) => {
+  const orgName = 'junekimdev';
+  const siteName = 'Template Landing Page';
+  const homeUrl = process.env.PUBLIC_URL || 'localhost:3000';
   const {
-    image = `${homeUrl}/assets/LogoPlace_Extended_1200x627.png`,
+    image = `${homeUrl}/assets/images/LogoPlace_Extended_1200x627.png`,
     imageWidth = '1200',
     imageHeight = '627',
   } = props;
@@ -39,11 +40,10 @@ const Meta = (props: IMeta) => {
       <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
       <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png" />
       <link rel="manifest" href="/site.webmanifest" />
-      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5" />
-      <meta name="msapplication-TileColor" content="#da532c" />
-      <meta name="theme-color" content="#dfdfdf" />
+      <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffffff" />
+      <meta name="msapplication-TileColor" content="#ffffff" />
+      <meta name="theme-color" content="#ffffff" />
       <script src="/modernizr.js" type="text/javascript" defer></script>
-      {props.js && <script src={props.js} defer></script>}
       {props.children}
     </Head>
   );
