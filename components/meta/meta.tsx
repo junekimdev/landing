@@ -1,5 +1,5 @@
 import Head from 'next/head';
-// import GTag from './gtag';
+import GTag from './gtag';
 import { TMPropsMeta } from './metaType';
 
 const Meta = (props: TMPropsMeta) => {
@@ -14,6 +14,7 @@ const Meta = (props: TMPropsMeta) => {
 
   return (
     <Head>
+      <GTag />
       <title>{props.title}</title>
       <link rel="canonical" href={props.url} />
       <meta name="robots" content="index, follow" />
@@ -43,7 +44,6 @@ const Meta = (props: TMPropsMeta) => {
       <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#ffffff" />
       <meta name="msapplication-TileColor" content="#ffffff" />
       <meta name="theme-color" content="#ffffff" />
-      <script src="/modernizr.js" type="text/javascript" defer></script>
       {props.children}
     </Head>
   );

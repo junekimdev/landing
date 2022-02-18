@@ -1,4 +1,5 @@
 import { useEffect } from 'react';
+import Script from 'next/script';
 import Meta from '../components/meta';
 import Header from '../components/header';
 import Footer from '../components/footer';
@@ -43,6 +44,7 @@ const Page = () => {
     <>
       <Meta title="Landing Page Demo" desc="Landing Page Demo" url={publicUrl} />
       <Header pathname="/" />
+      <Script src="/modernizr.js" type="text/javascript" strategy="beforeInteractive" />
       <main role="main">
         <Home />
         <Products />
